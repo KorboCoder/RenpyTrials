@@ -8,3 +8,4 @@ game/cache/screens.rpyb
 game/bytecode.rpyb
 traceback.txt
 *.rpyc
+tmp/

@@ -3,6 +3,10 @@
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
 
+#setup 3d camera
+#init python:
+ #      register_3d_layer('background', 'middle', 'forward')
+
 # Declare characters used by this game.
 define g = Character('Girl', color="#c8ffc8")
 
@@ -63,7 +67,14 @@ label start:
     
     scene bg room with Fade(0.1,2.0,3.0)
     "Uuugggghhh"
-    show stuffInRoom with Dissolve(0.1)
+    show stuffInRoom with Fade(0.1,0.1,0.1,color = "#fff")
     "What the hell"
     hide stuffInRoom with Fade(1.0, 1.0, 1.0)
     "I need to take a dump"
+    
+    show g giggle:
+        
+        xpos 0 ypos 0
+        linear 2.0 xpos .5 ypos .5 counterclockwise
+    with Dissolve(0.1)
+    "Oh shit!"

@@ -1,3 +1,9 @@
 game/saves/
 log.txt
 tmp/navigation.json
+errors.txt
+game/cache/bytecode.rpyb
+game/cache/pyanalysis.rpyb
+game/cache/screens.rpyb
+game/bytecode.rpyb
+traceback.txt

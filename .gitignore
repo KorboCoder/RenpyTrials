@@ -7,3 +7,4 @@ game/cache/pyanalysis.rpyb
 game/cache/screens.rpyb
 game/bytecode.rpyb
 traceback.txt
+*.rpyc

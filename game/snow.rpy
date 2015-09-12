@@ -5,9 +5,9 @@ init python:
 
     random.seed()
 
-    def Snow(image, max_particles=50, speed=150, wind=100, direction=0.0,  xborder=(0,100), yborder=(50,400), **kwargs):
+    def Snow(image, max_particles=50, speed=150, wind=100, rotate=0.0,  xborder=(0,100), yborder=(50,400), **kwargs):
 
-        return Particles(SnowFactory(image, max_particles, speed, direction, wind, xborder, yborder, **kwargs))
+        return Particles(SnowFactory(image, max_particles, speed, rotate, wind, xborder, yborder, **kwargs))
 
     class SnowFactory(object):
         def __init__(self, image, max_particles, speed, direction, wind, xborder, yborder, **kwargs):

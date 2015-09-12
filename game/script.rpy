@@ -27,14 +27,14 @@ image dummyRoom2 = Image("images/bedroom.jpg")
 
 image snow = "snow.png"
 image redsnow = "redsnow.png"
-image snowblossom = Snow("snow.png",2000,800,0)
+image snowblossom = Snow("snow.png",200,400,100,0)
+
 
 
 
 # The game starts here.
 label start:
     scene bg street
-    show snowblossom:
-        rotate 0
-        
-    "Heavy Blizzard"
+    show snowblossom
+
+    "Huh, it's snowing"

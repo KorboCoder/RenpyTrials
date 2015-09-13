@@ -25,19 +25,21 @@ init python:
 
         def create(self, particles, st):
 
-            if particles is None or len(particles) < self.max_particles:
-
+            #if particles is None or len(particles) < self.max_particles:
+            rv = []
+            for _i in xrange(0, self.max_particles):
                 depth = random.randint(1, self.depth)
                 depth_speed = 1.5-depth/(self.depth+0.0)
 
-                return [ SnowParticle(self.image[depth-1],      # the image used by the particle
+                rv.append( SnowParticle(self.image[depth-1],      # the image used by the particle
                                       random.uniform(-self.wind, self.wind)*depth_speed,  # wind's force
                                       self.speed*depth_speed,  # the vertical speed of the particle
                                       self.direction,
                                       random.randint(self.xborder[0], self.xborder[1]), # horizontal border
                                       random.randint(self.yborder[0], self.yborder[1]), # vertical border
-                                      
-                                      ) ]
+                                  
+                                      ) )
+            return rv
 
         def image_init(self, image):
             rv = [ ]

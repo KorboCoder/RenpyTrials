@@ -144,8 +144,9 @@ init -1 python hide:
     ## These let you customize the default font used for text in Ren'Py.
 
     ## The file containing the default font.
-
-    # style.default.font = "DejaVuSans.ttf"
+    
+    style.say_thought.font = "FancyFont.ttf"
+    style.say_dialogue.font = "FancyFont.ttf"
 
     ## The default size of text.
 
@@ -278,7 +279,7 @@ init -1 python hide:
 
     ## The default text speed in characters per second. 0 is infinite.
 
-    config.default_text_cps = 0
+    config.default_text_cps = 50
 
     ## The default auto-forward time setting.
 

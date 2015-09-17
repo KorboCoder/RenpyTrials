@@ -10,38 +10,11 @@
 # Declare characters used by this game.
 define g = Character('Girl', color="#c8ffc8")
 
-transform left_to_right:
-    xalign 0.0
-    xoffset -20
-    alpha 0
-    parallel:
-        easein 0.2 xoffset 0.0
-    parallel:
-        easein 0.2 alpha 1.0
-# Declare images
-image g giggle = "images/sylvie_giggle.png"
-image g normal = "images/sylvie_normal.png"
 image bg street = "images/darkstreet.jpg"
-image bg room = "images/bedroom.jpg"
-image dummyRoom1 = Image("images/bedroom.jpg")
-image dummyRoom2 = Image("images/bedroom.jpg")
-
-image snow = "snow.png"
-# image,density, speed, wind, angle
-image normalsnow = Snow("snow.png",1,200,100,0)
-image blizzard = Snow("snow.png",10,900,100,45)
-
-
-
 # The game starts here.
 label start:
     scene bg street
-    show normalsnow 
-    "Huh, it's snowing"
-    hide normalsnow with Dissolve (0.2)
-    show blizzard with Dissolve (0.2)
-    show g normal at left:
-        left_to_right
   
-    "This is bad"
+    g "Derp derp"
+    "Herpa Derp"
  

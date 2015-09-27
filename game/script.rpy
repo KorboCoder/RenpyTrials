@@ -28,8 +28,8 @@ image dummyRoom2 = Image("images/bedroom.jpg")
 
 image snow = "snow.png"
 # image,density, speed, wind, angle
-image normalsnow = Snow("snow.png",1,200,100,0)
-image blizzard = Snow("snow.png",10,900,100,45)
+image normalsnow = Snow("raindrop.png",5,400, 0,0)
+image blizzard = Snow("raindrop.png",10,900,100,45)
 
 
 

@@ -2,46 +2,104 @@
 
 # Declare images below this line, using the image statement.
 # eg. image eileen happy = "eileen_happy.png"
-
-#setup 3d camera
-#init python:
- #      register_3d_layer('background', 'middle', 'forward')
-
-# Declare characters used by this game.
-define g = Character('Girl', color="#c8ffc8")
-
-transform left_to_right:
-    xalign 0.0
-    xoffset -20
-    alpha 0
-    parallel:
-        easein 0.2 xoffset 0.0
-    parallel:
-        easein 0.2 alpha 1.0
-# Declare images
-image g giggle = "images/sylvie_giggle.png"
-image g normal = "images/sylvie_normal.png"
-image bg street = "images/darkstreet.jpg"
-image bg room = "images/bedroom.jpg"
-image dummyRoom1 = Image("images/bedroom.jpg")
-image dummyRoom2 = Image("images/bedroom.jpg")
-
+init python:
+    def randomfloat(min,max):
+        randNum = renpy.random.random()
+        randNum*=(max-min)
+        randNum+=min
+        return randNum
+        
 image snow = "snow.png"
 # image,density, speed, wind, angle
-image normalsnow = Snow("raindrop.png",5,400, 0,0)
-image blizzard = Snow("raindrop.png",10,900,100,45)
 
+image smokeblur  = "smokeblur.png"
+image steamblur  = "steamblur.png"
+image onsen = "onsen.jpg"
+image room = "images/bedroom.jpg"
 
+image black = Solid("#000")
+transform steamTransform:
+    truecenter
+    additive 0.7
+    xpos randomfloat(0.0,1.0)
+    alpha 1.0
+    ypos 1.4
+    pause randomfloat(0.2,1.0)
+    easeout randomfloat(1.7, 2.5) ypos randomfloat(0.1,0.2)  alpha 0.0
+    repeat
+    
+transform smokeTransform:
+    truecenter
+    additive -0.5
+    xpos randomfloat(0.0,1.0)
+    alpha 1.0
+    ypos 1.4
+    pause randomfloat(0.2,1.0)
+    easein randomfloat(1.2, 2.0) ypos randomfloat(0.1,0.2) alpha 0.0
+    repeat
+
+image steam:
+    parallel:
+        steamTransform
+        repeat
+    parallel:
+        steamTransform
+        repeat
+    parallel:
+        steamTransform
+        repeat
+    parallel:
+        steamTransform
+        repeat
+    parallel:
+        steamTransform
+        repeat
+        
+
+    
 
 # The game starts here.
 label start:
-    scene bg street
-    show normalsnow 
-    "Huh, it's snowing"
-    hide normalsnow with Dissolve (0.2)
-    show blizzard with Dissolve (0.2)
-    show g normal at left:
-        left_to_right
-  
-    "This is bad"
+    scene onsen
+    #show steam
+    show steamblur as twin1:
+        steamTransform
+    show steamblur as twin2:
+        steamTransform
+    show steamblur as twin3:
+        steamTransform
+    show steamblur as twin4:
+        steamTransform
+    show steamblur as twin5:
+        steamTransform
+    show steamblur as twin6:
+        steamTransform
+    show steamblur as twin7:
+        steamTransform
+    show steamblur as twin8:
+        steamTransform
+    show steamblur as twin9:
+        steamTransform
+    "onsen time!"
+    scene room
+    show smokeblur as twin1:
+        smokeTransform
+    show smokeblur as twin2:
+        smokeTransform
+    show smokeblur as twin3:
+        smokeTransform
+    show smokeblur as twin4:
+        smokeTransform
+    show smokeblur as twin5:
+        smokeTransform
+    show smokeblur as twin6:
+        smokeTransform
+    show smokeblur as twin7:
+        smokeTransform
+    show smokeblur as twin8:
+        smokeTransform
+    show smokeblur as twin9:
+        smokeTransform
+    
+    "BURN!"
  

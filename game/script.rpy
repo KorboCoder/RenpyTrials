@@ -18,7 +18,7 @@ label start:
                 # Add 10 to affeciton point
                 $ char1_affection += 10
                 "Added 10"
-            "Sub 10":
+            "Subtact 10":
                 # Deduct 10 to affeciton point
                 $ char1_affection -= 10
                 "Subtracted 10"

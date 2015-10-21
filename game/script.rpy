@@ -14,6 +14,7 @@ label start:
     scene bg bedroom with CircleOut
     scene black with CircleIn
     scene bg street with CircleOut
+	
 
 
  

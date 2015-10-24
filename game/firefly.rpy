@@ -5,7 +5,7 @@ init python:
 
     random.seed()
 
-    def Firefly(image, max_particles=50, speed=150, wind=100, rotate=0.0,  xborder=(0,100), yborder=(50,400), **kwargs):
+    def Firefly(image, max_particles=50, speed=150, wind=100, rotate=0.0,  xborder=(0,100), yborder=( renpy.config.screen_height, renpy.config.screen_height), **kwargs):
 
         return Particles(FireflyFactory(image, max_particles, speed, rotate, wind, xborder, yborder, **kwargs))
 
@@ -17,7 +17,7 @@ init python:
             direction = math.radians(90-direction)
             self.direction = (math.cos(direction), math.sin(direction))
             self.xborder = xborder
-            self.yborder = yborder
+            self.yborder = yborder  
 
             self.depth = kwargs.get("depth", 10)
 
@@ -36,7 +36,7 @@ init python:
                                       self.speed*depth_speed,  # the vertical speed of the particle
                                       self.direction,
                                       random.randint(self.xborder[0], self.xborder[1]), # horizontal border
-                                      random.randint(self.yborder[0], self.yborder[1]), # vertical border
+                                      random.randint(self.yborder[0]-50, self.yborder[1]), # vertical border
                                   
                                       ) )
             return rv
@@ -87,17 +87,17 @@ init python:
             if(direction[0] < 0.01 and direction[0] > -0.01):
                 # the horizontal/vertical positions of this particle            
                 self.xpos = random.uniform(0-xborder, renpy.config.screen_width+xborder)
-                self.ypos = -yborder
+                self.ypos = yborder
             else:
                 if random.randint(0,1) == 1:
                     self.xpos = random.uniform(0-xborder, renpy.config.screen_width+xborder)
-                    self.ypos = -yborder
+                    self.ypos = yborder
                 else:
                     if direction[0] > 0:
                         self.xpos = 0
                     else:
                         self.xpos = renpy.config.screen_width
-                    self.ypos = random.uniform(0-yborder, renpy.config.screen_height+yborder)
+                    self.ypos = random.uniform(yborder, 0-yborder)
                     
 
 
@@ -110,7 +110,7 @@ init python:
             self.oldst = st
 
             self.xpos += lag * (self.wind + self.direction[0]*self.speed)
-            self.ypos += lag * (self.speed*self.direction[1])
+            self.ypos -= lag * (self.speed*self.direction[1])
 
             if self.ypos > renpy.config.screen_height or\
                (self.wind< 0 and self.xpos < 0) or (self.wind > 0 and self.xpos > renpy.config.screen_width):

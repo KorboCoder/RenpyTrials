@@ -28,7 +28,7 @@ image dummyRoom2 = Image("images/bedroom.jpg")
 
 image snow = "snow.png"
 # image,density, speed, wind, angle
-image normalsnow = Firefly("snow.png",1,200,100,0)
+image normalsnow = Firefly("firefly.png",1,200,100,0)
 
 
 

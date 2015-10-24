@@ -28,8 +28,7 @@ image dummyRoom2 = Image("images/bedroom.jpg")
 
 image snow = "snow.png"
 # image,density, speed, wind, angle
-image normalsnow = Snow("snow.png",1,200,100,0)
-image blizzard = Snow("snow.png",10,900,100,45)
+image normalsnow = Firefly("snow.png",1,200,100,0)
 
 
 
@@ -37,11 +36,4 @@ image blizzard = Snow("snow.png",10,900,100,45)
 label start:
     scene bg street
     show normalsnow 
-    "Huh, it's snowing"
-    hide normalsnow with Dissolve (0.2)
-    show blizzard with Dissolve (0.2)
-    show g normal at left:
-        left_to_right
-  
-    "This is bad"
- 
+    "FireFlies!"
